@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import logoLight from "@/assets/xdc-payments-logo-light.svg";
+import logoDark from "@/assets/xdc-payments-logo-dark.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,37 +29,39 @@ const Header = () => {
   return <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-background/95 backdrop-blur-lg border-b border-border shadow-lg' : 'bg-transparent border-b border-transparent'}`}>
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="flex items-center gap-2 group cursor-pointer">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-            <span className="text-primary-foreground font-bold text-lg">X</span>
-          </div>
-          <span className="font-bold text-xl text-foreground group-hover:text-primary transition-colors duration-300">XDC Network</span>
+          <img 
+            src={logoLight} 
+            alt="Payenst Logo" 
+            className="h-10 w-auto transition-all duration-500 group-hover:scale-110 group-hover:rotate-3"
+            style={!isScrolled ? { filter: 'brightness(0) invert(1)' } : {}}
+          />
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link, index) => <a key={link.label} href={link.href} className="relative text-muted-foreground hover:text-foreground transition-colors font-medium py-2 group" style={{
-          animationDelay: `${index * 100}ms`
-        }}>
+          {navLinks.map((link, index) => <a key={link.label} href={link.href} className={`relative transition-colors font-medium py-2 group ${isScrolled ? 'text-muted-foreground hover:text-foreground' : 'text-white/80 hover:text-white'}`} style={{
+            animationDelay: `${index * 100}ms`
+          }}>
               {link.label}
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              <span className={`absolute bottom-0 left-0 w-full h-0.5 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left ${isScrolled ? 'bg-primary' : 'bg-white'}`} />
             </a>)}
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          <Button variant="ghost" className="hover:bg-primary/10 transition-all duration-300">
+          <Button variant="ghost" className={`transition-all duration-300 ${isScrolled ? 'hover:bg-primary/10' : 'text-white/80 hover:text-white hover:bg-white/10 border-white/20'}`}>
             Contact
           </Button>
-          <Button className="relative overflow-hidden group">
+          <Button className={`relative overflow-hidden group ${isScrolled ? '' : 'bg-white/10 hover:bg-white/20 text-white border-white/30'}`}>
             <span className="relative z-10">Get Started</span>
             <div className="absolute inset-0 bg-gradient-to-r from-primary to-chart-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button className="md:hidden p-2 rounded-lg hover:bg-primary/10 transition-colors" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <button className={`md:hidden p-2 rounded-lg transition-colors ${isScrolled ? 'hover:bg-primary/10' : 'hover:bg-white/10'}`} onClick={() => setIsMenuOpen(!isMenuOpen)}>
           <div className="relative w-6 h-6">
-            <Menu className={`absolute inset-0 w-6 h-6 text-foreground transition-all duration-300 ${isMenuOpen ? 'opacity-0 rotate-90' : 'opacity-100 rotate-0'}`} />
-            <X className={`absolute inset-0 w-6 h-6 text-foreground transition-all duration-300 ${isMenuOpen ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'}`} />
+            <Menu className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isScrolled ? 'text-foreground' : 'text-white'} ${isMenuOpen ? 'opacity-0 rotate-90' : 'opacity-100 rotate-0'}`} />
+            <X className={`absolute inset-0 w-6 h-6 transition-all duration-300 ${isScrolled ? 'text-foreground' : 'text-white'} ${isMenuOpen ? 'opacity-100 rotate-0' : 'opacity-0 -rotate-90'}`} />
           </div>
         </button>
       </div>

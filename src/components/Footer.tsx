@@ -4,6 +4,7 @@ import {
   Github, 
   MessageCircle 
 } from "lucide-react";
+import logoLight from "@/assets/xdc-payments-logo-light.svg";
 
 const Footer = () => {
   const footerLinks = {
@@ -30,10 +31,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-4 group cursor-pointer">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                <span className="text-primary-foreground font-bold text-lg">X</span>
-              </div>
-              <span className="font-bold text-xl text-secondary-foreground group-hover:text-primary transition-colors">XOC Network</span>
+              <img 
+                src={logoLight} 
+                alt="Payenst Logo" 
+                className="h-10 w-auto transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+              />
             </div>
             <p className="text-secondary-foreground/70 text-sm mb-6 max-w-xs">
               Enabling real-time cross-border payments with USDC on XDC Network.
