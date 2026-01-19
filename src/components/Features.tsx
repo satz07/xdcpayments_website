@@ -56,7 +56,7 @@ const Features = () => {
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
             Experience the Power of{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-chart-1">
+            <span className="text-primary">
               USDC on XDC
             </span>
           </h2>

@@ -66,7 +66,7 @@ const UseCases = () => {
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
             Built for{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-chart-1">
+            <span className="text-primary">
               Real-World Payment Systems
             </span>
           </h2>

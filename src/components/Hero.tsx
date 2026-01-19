@@ -1,28 +1,16 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Zap, Globe } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
-import FloatingParticles from "./FloatingParticles";
+import { Shield, Zap, Globe } from "lucide-react";
+import GlobeBackground from "./GlobeBackground";
 import GlowingOrb from "./GlowingOrb";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      >
-        <div className="absolute inset-0 bg-secondary/90" />
-      </div>
-
-      {/* Animated Background Elements */}
-      <FloatingParticles count={30} />
+      {/* Animated Globe Background with Payment Flows */}
+      <GlobeBackground />
+      
+      {/* Glowing Orbs */}
       <GlowingOrb size="xl" color="primary" position={{ top: '-10%', right: '-10%' }} />
       <GlowingOrb size="lg" color="accent" position={{ bottom: '10%', left: '-5%' }} />
-      
-      {/* Rotating Ring */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] border border-primary/10 rounded-full animate-spin-slow pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[650px] md:h-[650px] border border-primary/5 rounded-full animate-spin-slow pointer-events-none" style={{ animationDirection: 'reverse', animationDuration: '30s' }} />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -46,24 +34,10 @@ const Hero = () => {
           </h1>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-secondary-foreground/80 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in-up opacity-0" style={{ animationDelay: '400ms' }}>
+          <p className="text-lg md:text-xl text-secondary-foreground/80 mb-16 max-w-2xl mx-auto leading-relaxed animate-fade-in-up opacity-0" style={{ animationDelay: '400ms' }}>
             Experience real-time settlement with USDC on XDC Network. 
             Secure, scalable, and future-ready infrastructure for global commerce.
           </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up opacity-0" style={{ animationDelay: '600ms' }}>
-            <Button size="lg" className="group text-lg px-8 py-6 relative overflow-hidden">
-              <span className="relative z-10 flex items-center">
-                Start Integration
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary to-chart-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6 border-secondary-foreground/20 text-secondary-foreground hover:bg-secondary-foreground/10 backdrop-blur-sm transition-all duration-300 hover:scale-105">
-              View Documentation
-            </Button>
-          </div>
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
